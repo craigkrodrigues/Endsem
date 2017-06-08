@@ -32,10 +32,10 @@ public class BallotManager
 
     }
 
-    public String reportResults()
+    public void reportResults()
     {
         findWinner();
-        return drawGraph();
+   
     }
 
     private void compareWinner(Candidate candidate)
@@ -65,19 +65,17 @@ public class BallotManager
         compareWinner(candidate2);
         compareWinner(candidate3);
         compareWinner(candidate4);
+        System.out.println("The winner of the ballot is " + winner.name + "with" 
+                + winner.votes + "\n" );
 
     }
 
-    private String drawGraph()
+  
+   /* private void leader(String winner, int votes)
     {  
-        return leader(winner.getName(), winner.getNumberOfVotes());
+        System.out.println("The winner of the ballot is" + winner + "with" 
+            + winner.votes + "\n" + "Results graph");
     }
-
-    private String leader(String winner, int votes)
-    {   drawGraph();
-        return ("The winner of the ballot is" + winner + "with" 
-            + votes + "\n" + "Results graph");
-    }
-
+*/
 
 }

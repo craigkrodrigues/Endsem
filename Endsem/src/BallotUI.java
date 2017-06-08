@@ -1,10 +1,14 @@
 import java.util.Scanner;
-
+import java.util.ArrayList;
+import java.util.Collections;
 public class BallotUI 
 {
     // instance variables 
+	int voters;
+	 ArrayList votea = new ArrayList();
+	 ArrayList names = new ArrayList();
     private Scanner keyboard;
-    private BallotManager ballot;
+    public BallotManager ballot=new BallotManager("Fred","Bill","Joe","Jane");
     private String votingMessage;
 
     /**
@@ -21,10 +25,19 @@ public class BallotUI
     public void menu()    
     {
         int command = -1;
+       
         while(command != 0)        
         {
+        	
+        
             displayMainMenu();
             command = getCommand();
+            if(command<5){
+            	
+            votea.add(command);
+            voters++;
+        	names.add("voter" +voters);
+            }
             execute(command);
         }
     }
@@ -39,7 +52,9 @@ public class BallotUI
         System.out.println("    To vote for Bill          Enter 2");
         System.out.println("    To vote for Joe           Enter 3"); 
         System.out.println("    To vote for Jane          Enter 4");
+        System.out.println("    To reset          Enter 5");
         System.out.println("To close    Enter 0");
+        System.out.println("    To check the number of voters Enter Any number greater than 5");
     }
 
     /**
@@ -49,7 +64,7 @@ public class BallotUI
     {
         if(command == 1)
         {
-            ballot.candidate1.incrementVoteCount();
+            ballot.castVote(1);
         }
         else if(command == 2)
         {
@@ -57,20 +72,29 @@ public class BallotUI
         }
         else if(command == 3)
         {
+
             ballot.candidate3.incrementVoteCount();
         }
         else if(command == 4)
         {
             ballot.candidate4.incrementVoteCount();
         }            
+        else if(command==5)
+        {
+        	voters=0;
+        	System.out.println("resetting counter");
+        	
+        }
         else if(command == 0)
         {
             System.out.println(" Program closing down");
+            ballot.reportResults();
         }
         else
         {
-            System.out.println("Unknown command");
+            System.out.println("No of voters are:" + voters);
            // ballot.candidate.castVote();
+            Voters();
         }
 
     }
@@ -81,6 +105,7 @@ public class BallotUI
     private int getCommand()
     {
         System.out.print("Enter command: ");
+        //votea.add(keyboard.nextInt());
         return keyboard.nextInt();
     }
 
@@ -92,6 +117,12 @@ public class BallotUI
     {
        displayMainMenu();
     }
-
+    public void Voters()
+    {
+    	 for (int k1 = 0; k1 < names.size(); k1++) {
+             System.out.println (names.get(k1) + " :  Voted for Candidate" + votea.get(k1));
+          } 
+    	
+    }
 
 }
