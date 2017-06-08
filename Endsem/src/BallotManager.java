@@ -1,11 +1,11 @@
-public class BallotManager
+public class BallotManager 
 {
     // instance variables - replace the example below with your own
-    private Candidate candidate1;
-    private Candidate candidate2;
-    private Candidate candidate3;
-    private Candidate candidate4;
-    private Candidate winner;
+    public Candidate candidate1;
+    public Candidate candidate2;
+    public Candidate candidate3;
+    public Candidate candidate4;
+    public Candidate winner;
 
     /**
      * Constructor for objects of class BallotManager
