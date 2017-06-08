@@ -4,9 +4,9 @@ public class Candidate
 
 	 
 
-	    private String name;   
+	    public String name;   
 
-	    private int votes;
+	    public int votes;
 
 	 
 
